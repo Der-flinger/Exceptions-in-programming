@@ -1,4 +1,3 @@
-package Homework_Sem_3;
 
 public class IncorrectNameException extends IncorrectDataFormatException {
 
