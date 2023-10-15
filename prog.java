@@ -60,6 +60,7 @@ public class prog {
         Scanner sc = new Scanner(System.in);
         String data = sc.nextLine();
         String[] splitArray = data.split(" ");
+        System.out.println(Arrays.toString(splitArray));
         return splitArray;
     }
 
