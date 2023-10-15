@@ -1,7 +1,9 @@
 
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.lang.reflect.Array;
 import java.lang.reflect.Method;
 import java.time.LocalDate;
@@ -23,8 +25,11 @@ public class prog {
         dataArray = phoneReEntering(dataArray);
         System.out.println(Arrays.toString(dataArray));
 
-        try (FileWriter fw = new FileWriter(dataArray[0])) {
-            fw.write(stringFormatting(dataArray));
+        try (PrintWriter fw = new PrintWriter(new File(dataArray[0]))) {
+            String personalData = stringFormatting(dataArray) + "\n";
+            fw.println(personalData);
+            fw.flush();
+            // fw.append(stringFormatting(dataArray));
         } catch (IOException e) {
             System.out.println("Не удалось записать данные" + e.getMessage());
             e.printStackTrace();
@@ -214,7 +219,7 @@ public class prog {
      * @throws IncorrectNameException
      */
     public static void surnameFormatChecking(String[] array) throws IncorrectNameException {
-        if (!array[0].toLowerCase().matches("[a-zёа-я]{1,100}")) {
+        if (!array[0].toLowerCase().matches("[а-яa-z]{1,100}")) {
             throw new IncorrectNameException("Фамилия не соответствует формату данных", "Фамилию", 0);
         }
     }
@@ -226,7 +231,7 @@ public class prog {
      * @throws IncorrectNameException
      */
     public static void nameFormatChecking(String[] array) throws IncorrectNameException {
-        if (!array[1].toLowerCase().matches("[a-zёа-я]{1,100}")) {
+        if (!array[1].toLowerCase().matches("[а-яa-z]{1,100}")) {
             throw new IncorrectNameException("Имя не соответствует формату данных", "Имя", 1);
         }
     }
@@ -238,7 +243,7 @@ public class prog {
      * @throws IncorrectNameException
      */
     public static void patronymicFormatChecking(String[] array) throws IncorrectNameException {
-        if (!array[2].toLowerCase().matches("[a-zёа-я]{1,100}")) {
+        if (!array[2].toLowerCase().matches("[а-яa-z]{1,100}")) {
             throw new IncorrectNameException("Отчество не соответствует формату данных", "Отчество", 2);
         }
     }
