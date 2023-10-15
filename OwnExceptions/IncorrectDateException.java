@@ -1,3 +1,6 @@
+/**
+ * Исключение показывает неверный формат даты рождения
+ */
 public class IncorrectDateException extends IncorrectDataFormatException {
 
     final String date = "dd.MM.yyyy";

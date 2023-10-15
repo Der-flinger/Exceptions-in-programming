@@ -1,6 +1,7 @@
 
 /**
  * Исключение, указывает на неверное кол-во данных
+ * 
  */
 public class NotEnoughtOrTooMuchDataException extends Exception {
     private int dataQuantity;

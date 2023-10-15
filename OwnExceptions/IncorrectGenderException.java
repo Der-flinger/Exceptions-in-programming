@@ -1,3 +1,6 @@
+/**
+ * Исключение показывает неверный формат пола пользователя
+ */
 public class IncorrectGenderException extends IncorrectDataFormatException {
 
     private int index;

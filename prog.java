@@ -31,6 +31,9 @@ public class prog {
         }
     }
 
+    /**
+     * Вывод сообщений пользователю на экран
+     */
     public static void printPrompt() {
         System.out.println("Введите данные в одну строку через пробел в заданном порядке ");
 
@@ -43,6 +46,11 @@ public class prog {
                 "Введите фамилию, имя, отчество, дату рождения, пол и номер телефона в соответствии с инструкцией");
     }
 
+    /**
+     * Ввод данных пользователем и парсинг полученных данных
+     * 
+     * @return Возвращает массив с данными
+     */
     public static String[] dataAcquisition() {
         Scanner sc = new Scanner(System.in);
         String data = sc.nextLine();
@@ -64,6 +72,11 @@ public class prog {
         }
     }
 
+    /**
+     * Вывод информацию о кол-ве введенных данных
+     * 
+     * @return Возвращает массив с правильным кол-вом данных
+     */
     public static String[] getDataArray() {
         while (true) {
 
@@ -84,6 +97,12 @@ public class prog {
         }
     }
 
+    /**
+     * Ввод новой фамилии, если сработало исключение
+     * 
+     * @param array массив с данными
+     * @return Возвращает массив с обновленными данными
+     */
     public static String[] surnameReEntering(String[] array) {
         while (true) {
             try {
@@ -96,6 +115,12 @@ public class prog {
         }
     }
 
+    /**
+     * Ввод нового имени, если сработало исключение
+     * 
+     * @param array массив с данными
+     * @return Возвращает массив с обновленными данными
+     */
     public static String[] nameReEntering(String[] array) {
         while (true) {
             try {
@@ -108,6 +133,12 @@ public class prog {
         }
     }
 
+    /**
+     * Ввод нового отчества, если сработало исключение
+     * 
+     * @param array массив с данными
+     * @return Возвращает массив с обновленными данными
+     */
     public static String[] patronymicReEntering(String[] array) {
         while (true) {
             try {
@@ -120,6 +151,12 @@ public class prog {
         }
     }
 
+    /**
+     * Ввод новой даты рождения, если сработало исключение
+     * 
+     * @param array массив с данными
+     * @return Возвращает массив с обновленными данными
+     */
     public static String[] dateReEntering(String[] array) {
         while (true) {
             try {
@@ -132,6 +169,12 @@ public class prog {
         }
     }
 
+    /**
+     * Ввод пола пользователя повторно, если сработало исключение
+     * 
+     * @param array массив с данными
+     * @return Возвращает массив с обновленными данными
+     */
     public static String[] genderReEntering(String[] array) {
         while (true) {
             try {
@@ -145,6 +188,12 @@ public class prog {
         }
     }
 
+    /**
+     * Ввод номера телефона повторно, если сработало исключение
+     * 
+     * @param array массив с данными
+     * @return Возвращает массив с обновленными данными
+     */
     public static String[] phoneReEntering(String[] array) {
         while (true) {
             try {
@@ -158,24 +207,48 @@ public class prog {
         }
     }
 
+    /**
+     * Проверка формата введенных данных
+     * 
+     * @param array массив с данными
+     * @throws IncorrectNameException
+     */
     public static void surnameFormatChecking(String[] array) throws IncorrectNameException {
         if (!array[0].toLowerCase().matches("[a-zёа-я]{1,100}")) {
             throw new IncorrectNameException("Фамилия не соответствует формату данных", "Фамилию", 0);
         }
     }
 
+    /**
+     * Проверка формата введенных данных
+     * 
+     * @param array массив с данными
+     * @throws IncorrectNameException
+     */
     public static void nameFormatChecking(String[] array) throws IncorrectNameException {
         if (!array[1].toLowerCase().matches("[a-zёа-я]{1,100}")) {
             throw new IncorrectNameException("Имя не соответствует формату данных", "Имя", 1);
         }
     }
 
+    /**
+     * Проверка формата введенных данных
+     * 
+     * @param array массив с данными
+     * @throws IncorrectNameException
+     */
     public static void patronymicFormatChecking(String[] array) throws IncorrectNameException {
         if (!array[2].toLowerCase().matches("[a-zёа-я]{1,100}")) {
             throw new IncorrectNameException("Отчество не соответствует формату данных", "Отчество", 2);
         }
     }
 
+    /**
+     * Проверка формата введенных данных
+     * 
+     * @param array массив с данными
+     * @throws IncorrectNameException
+     */
     public static void dateFormatChecking(String[] array) throws IncorrectDateException {
         // array[3]
         try {
@@ -185,6 +258,12 @@ public class prog {
         }
     }
 
+    /**
+     * Проверка формата введенных данных
+     * 
+     * @param array массив с данными
+     * @throws IncorrectNameException
+     */
     public static void genderFormatChecking(String[] array) throws IncorrectGenderException {
         // array[4]
         if (!array[4].matches("[fm]")) {
@@ -192,6 +271,12 @@ public class prog {
         }
     }
 
+    /**
+     * Проверка формата введенных данных
+     * 
+     * @param array массив с данными
+     * @throws IncorrectNameException
+     */
     public static void phoneFormatChecking(String[] array) throws IncorrectPhoneException {
         // array[5]
         String regex = "\\d\\(\\d{3}\\)\\d{3}-\\d{2}-\\d{2}";
@@ -200,6 +285,12 @@ public class prog {
         }
     }
 
+    /**
+     * Преобразование массива с данными в строку
+     * 
+     * @param array массив с данными
+     * @return Возвращает строку, составленную из данных массива
+     */
     public static String stringFormatting(String[] array) {
         String str = "";
         for (int i = 0; i < array.length; i++) {

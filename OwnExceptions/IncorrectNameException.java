@@ -1,4 +1,9 @@
 
+/**
+ * Исключение показывает неверный формат имени пользователя
+ * 
+ * @param message сообщение дает информацию о том, что неверно
+ */
 public class IncorrectNameException extends IncorrectDataFormatException {
 
     private String nameData;
