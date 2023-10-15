@@ -25,9 +25,9 @@ public class prog {
         dataArray = phoneReEntering(dataArray);
         System.out.println(Arrays.toString(dataArray));
 
-        try (PrintWriter fw = new PrintWriter(new File(dataArray[0]))) {
+        try (FileWriter fw = new FileWriter(new File(dataArray[0]), true)) {
             String personalData = stringFormatting(dataArray) + "\n";
-            fw.println(personalData);
+            fw.write(personalData);
             fw.flush();
             // fw.append(stringFormatting(dataArray));
         } catch (IOException e) {
